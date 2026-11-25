@@ -16,7 +16,7 @@ A Pokémon-themed family reward app for Mason, with five daily missions, weekly 
 - Detailed morning, learning, unpacking, home-care, and bedtime checklists.
 - Shorter routines for weekends and school breaks.
 - Parent dashboard with daily/weekly scores, a 14-day mission breakdown, and reward history.
-- Family sync using Supabase email sign-in and row-level security.
+- Family sync using Supabase password or email-link sign-in and row-level security.
 - Local backup export/import and offline changes queued for sync.
 
 ## Run locally
@@ -75,3 +75,9 @@ Database checks verified per-user isolation, blocked cross-family writes, and re
 ## Credits
 
 Pokémon names and imagery are used for a personal fan project. The repository's application license does not grant rights to Pokémon trademarks or third-party assets. Supabase JS retains its upstream MIT license in `THIRD_PARTY_NOTICES.md`.
+
+## Connecting an iPad when email sending is limited
+
+On a device already signed in to the app, open **Family connection → Set or change account password**. Choose and confirm a password yourself. On the iPad, use **Set up family sync → Sign in with password** with the same parent email. Existing account passwords also work. This changes the Auth account password for any apps sharing that account in this Supabase project; it does not change the dashboard password. No password is stored in app data or this repository.
+
+Email rate-limit responses pause the app’s email button for one hour on that browser as a conservative backoff. This is not a guaranteed server reset time. Password sign-in remains available, and the original email limit is not changed. If no device is signed in and no password is set, wait for email delivery to recover before completing initial sign-in.
